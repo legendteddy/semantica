@@ -693,6 +693,9 @@ class CommunityDetector:
             ValueError: If graph is empty or parameters are invalid
             RuntimeError: If community detection fails
         """
+        if chunk_size < 1:
+            raise ValueError("chunk_size must be at least 1")
+
         try:
             self.logger.info("Detecting communities using Label Propagation algorithm")
 
